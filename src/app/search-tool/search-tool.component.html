@@ -1,0 +1,29 @@
+<header class="navbar">
+  <label for="">Search :</label>
+  <input type="text" #Books (keyup)="search(Books.value)">
+</header>
+
+
+<div class="container" *ngIf="Books$ | async as books; else loading">
+  <div class="content-body" *ngFor="let book of books">
+    <article>
+      <img [src]="book.volumeInfo.imageLinks?.thumbnail" alt="no Image found ">
+    </article>
+    <div class="content">
+      <p>{{book.volumeInfo?.title}}
+        <b *ngIf="book.volumeInfo?.authors"> - {{book.volumeInfo?.authors[0]}}</b>
+      </p>
+      <div *ngIf="book.volumeInfo?.publishedDate || book.volumeInfo?.pageCount">
+        <p>Published Date : {{book.volumeInfo?.publishedDate}}</p>
+        <p> Total Pages : {{book.volumeInfo?.pageCount}}</p>
+      </div>
+      <p title="{{book.searchInfo?.textSnippet}}">{{book.searchInfo?.textSnippet | HtmlToText : book.id : book.kind :
+        book}}</p>
+    </div>
+  </div>
+
+</div>
+
+<ng-template #loading>
+  <p>{{loader}}</p>
+</ng-template>

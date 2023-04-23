@@ -1,0 +1,21 @@
+<div *ngFor="let item of existUsers">
+    <h2 style="cursor: pointer;"  (click)="setval(item)">{{item?.name}}</h2>
+</div>
+
+
+
+<div *ngIf="user$ | async as use; else loading">
+  <!-- {{(user$|async)?.name}} -->
+     <div *ngFor="let user of use">
+      <p >{{user.name}}</p>
+      <p >{{user.age}}</p>
+      <p >{{user.details}}</p>
+     </div>
+
+<ng-template #loading>
+  <h1>please wait Loading....</h1>
+</ng-template>
+
+</div>
+
+
