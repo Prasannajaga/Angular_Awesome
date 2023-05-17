@@ -13,8 +13,6 @@ export class HtmlToPlain implements PipeTransform{
   transform(value: any,...agrs : any[]) : string {
    const data = agrs;
    console.log(data);
-
-
     const temp = document.createElement('div');
     temp.innerHTML = value;
     return temp.innerText || temp.innerHTML || '';
