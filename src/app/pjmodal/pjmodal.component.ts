@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-pjmodal',
@@ -8,13 +9,17 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PJModalComponent implements OnInit {
 
   @Input() data : string;
-  constructor() { }
+  constructor(private route : ActivatedRoute) { }
 
   ngOnInit() {
+    console.log(this.route.queryParams);
+    console.log(this.route.fragment); 
   }
 
-  close(){
-    alert();
-  }
+  close(modal : HTMLDivElement){
+    modal.style.display = "none";
+      console.log(modal);
+      
+   }
 
 }

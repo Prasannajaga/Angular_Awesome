@@ -1,4 +1,6 @@
 import { AfterViewInit, Component, Directive, ElementRef, Input, ViewChild } from '@angular/core';
+import { Router, RoutesRecognized } from '@angular/router';
+import { filter, pairwise } from 'rxjs/operators';
 
 @Directive({selector : "[child-direct]"})
 export class Children implements AfterViewInit{
@@ -26,10 +28,17 @@ export class Children implements AfterViewInit{
 export class AppComponent implements AfterViewInit{
   title = 'Angular-Awesome';
   @ViewChild(Children,{static:false}) child : Children;
-  constructor(){
+  constructor(private route : Router){
     
   }
   ngAfterViewInit(): void {
-    console.log('directive' , this.child.getAl());
+    this.route.events.pipe(
+      filter(res => res instanceof RoutesRecognized),
+      pairwise()
+    ).subscribe((val:any) =>{
+      console.log('value' , val[0].urlAfterRedirects);
+      
+    })
+    // console.log('directive' , this.child.getAl());
    }
 }

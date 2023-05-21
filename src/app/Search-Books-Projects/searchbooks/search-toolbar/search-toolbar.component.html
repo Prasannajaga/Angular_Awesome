@@ -1,0 +1,33 @@
+<header class="navbar">
+    <input type="text" placeholder="Enter Books here" #Books (keyup)="search(Books.value)">
+  </header>
+  <div class="container-main">
+    <app-search-sidebar></app-search-sidebar>
+  
+    <div class="container" *ngIf="Books$ | async as books; else loading">
+      <div class="content-body" *ngFor="let book of books">
+        <article> 
+          <img [src]="book.volumeInfo.imageLinks?.thumbnail" onerror="src='assets/NoCover.jpg'" height="200" width="150" alt="no Image found ">
+          <i class="fa fa-bookmark"></i>
+        </article> 
+        <div class="content">
+          <p>{{book.volumeInfo?.title}}
+            <b *ngIf="book.volumeInfo?.authors"> - {{book.volumeInfo?.authors[0]}}</b>
+          </p>
+          <div *ngIf="book.volumeInfo?.publishedDate || book.volumeInfo?.pageCount">
+            <p>Published Date : {{book.volumeInfo?.publishedDate}}</p>
+            <p> Total Pages : {{book.volumeInfo?.pageCount}}</p>
+          </div>
+          <p class="c-point" title="{{book.searchInfo?.textSnippet}}">{{book.searchInfo?.textSnippet | HtmlToText : book.id : book.kind : book}}</p>
+        </div>
+      </div>
+    
+    </div>
+  
+  </div>
+  
+  
+  <ng-template #loading>
+    <p>{{loader}}</p>
+  </ng-template>
+  
