@@ -1,0 +1,30 @@
+$primary-color : linear-gradient(to bottom right, #2193b0, #6dd5ed);
+$primary-text: #fff;
+
+.navbar { 
+
+    .nav-item {
+
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        padding: 10px;
+        height: 100rem;
+        width: 12rem;
+        background-image: $primary-color;
+        margin: 5px 0 0 -6px;
+
+
+        li {
+            padding: 15px;
+            color: $primary-text;
+        }
+
+        .nav-link:hover{
+            background-color:#A0A0A0;
+            opacity: 0.5;
+            color: black;
+            border-radius: 5px;
+        }
+    }
+}
