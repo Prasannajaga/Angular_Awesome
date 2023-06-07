@@ -1,0 +1,17 @@
+<!-- <ng-template  #CustomPopup let-data let-message="message">
+<p *ngFor="let val of data">{{val}} {{message}} </p> 
+</ng-template>
+
+
+
+<ng-container *ngTemplateOutlet="
+CustomPopup ; context : { $implicit : common.data , message : 'Hi there !'}
+" ></ng-container> 
+
+  -->
+
+<div>
+    <h1>{{data}}</h1>
+    <h1>{{commons | json}}</h1>
+    <button *ngIf="data" (click)="emit()">Update</button>
+</div>  

@@ -6,14 +6,20 @@ import { PJModalComponent } from './pjmodal/pjmodal.component';
 import { AppComponent } from './app.component';
 import { SearchSidebarComponent } from './Search-Books-Projects/searchbooks/search-sidebar/search-sidebar.component';
 import { SearchToolbarComponent } from './Search-Books-Projects/searchbooks/search-toolbar/search-toolbar.component';
-
+import { CustomDecoratorComponent } from './Custom-Classes/custom-decorator/custom-decorator.component';
+import { CustomDesignsComponent } from './Custom-Classes/custom-designs/custom-designs.component';
+ 
 const routes: Routes = [
   { path: 'Parent', component: AppComponent  , children : [ 
      {path : "timezone" , component : TimeZoneComponent},
-    {path : "DynamicTemplate" , component : DynamicTemplateComponent},
-    {path : "pjmodal" , component : PJModalComponent},
   ]},
+
    {path:"Search/Books", component:SearchToolbarComponent},
+   {path : "DynamicTemplate" , component : DynamicTemplateComponent},
+   {path : "pjmodal" , component : PJModalComponent},
+   {path : "customDecorator" , component : CustomDesignsComponent},
+
+
 ];
 
 @NgModule({

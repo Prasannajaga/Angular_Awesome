@@ -1,0 +1,14 @@
+<table>
+    <thead>
+        <tr>
+            <ng-container *ngTemplateOutlet="headers ; context : { $implicit : common.data}"></ng-container>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of collectionsPerson">
+            <ng-container *ngTemplateOutlet="rows; context : {$implicit : item }"></ng-container>
+        </tr>
+    </tbody>
+</table>
+
+

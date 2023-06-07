@@ -1,8 +1,46 @@
 
 <!-- // calling Dynamic Template using ViewContainer with programmatically in TS -->
 
-<p [routerLink]="['/pjmodal']" [queryParams]="{ prasanna : 'welcome'}" [fragment]="'hoi'" routerLinkActive="router-link-active" >Go to Somewhere</p>
+<p (click)="openModal()"   routerLinkActive="router-link-active" >Go to Somewhere</p>
+<button  (click)="changes()"> Click me</button> 
+ 
+<input type="text" [(ngModel)]="searchText">
+<div *ngFor="let data of employees | Filters : searchText">
+    {{data.name}} {{data.age}}
+</div>
+
+ <!-- <app-pjmodal [datas]="common.data">  -->
+
+    <!-- <ng-template  > -->
+     <!-- whatever element define inside the component  we can acess it by @contentChild decorator -->
+    <!-- </ng-template> -->
+
+<!-- </app-pjmodal> -->
+
 <ng-template #welcomeForm>
 
 </ng-template>
+
+
+<form  [formGroup]="asyncForm" #form="ngForm">
+     <input type="text" formControlName="userName">
+    <!-- <p *ngIf="asyncForm.controls.userName.statusChanges | async as status">
+        {{status | FormErrorController  :  'userName' }}
+    </p>
+    <input type="text" formControlName="age">
+    <p *ngIf="asyncForm.controls.age.statusChanges | async as status">
+        {{status | FormErrorController : 'age' }}
+    </p> -->
+
+    <p *ngIf="asyncForm.controls.userName.invalid  && asyncForm.controls.userName.touched">
+        {{'INVALID' | FormErrorController  :  'userName' }}
+    </p>
+    <input type="text" formControlName="age">
+    <p *ngIf="asyncForm.controls.age.invalid  && asyncForm.controls.age.touched">
+        {{'INVALID' | FormErrorController : 'age' }}
+    </p>
+
+    <button (click)="Submit()">Submit</button>
+</form>
+
 

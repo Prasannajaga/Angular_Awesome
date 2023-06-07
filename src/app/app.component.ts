@@ -39,6 +39,8 @@ export class AppComponent implements AfterViewInit{
       console.log('value' , val[0].urlAfterRedirects);
       
     })
-    // console.log('directive' , this.child.getAl());
-   }
+    }
+
+   coming(value : string){
+    }
 }

@@ -1,0 +1,50 @@
+.container{
+    display:grid;
+    grid-template-areas: 
+    "side contents head foot"
+    "side contents head foot"
+    "side contents head foot"
+    "god god god god";
+    grid-template-rows: 50px auto 50px;
+    justify-content: center;
+    align-items:center;
+    gap: 5px;
+
+    .item{
+        padding: 10px;
+    }
+    .item1{
+        border: 1px solid yellow;
+        grid-area: head;
+    }
+
+    .item2{
+        border: 1px solid blue;
+        grid-area: side;
+    }
+
+    .item3{
+        border: 1px solid red;
+        grid-area: contents;
+        height: 166px;
+    }
+
+    .item4{
+        border: 1px solid green;
+        grid-area: foot;
+    }
+
+    .item5{
+        border: 1px solid greenyellow;
+        grid-area: god;
+    }
+}
+
+.d-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    gap: 10px;
+}
+
+
