@@ -1,10 +1,12 @@
+import { SearchSidebarComponent } from './../search-sidebar/search-sidebar.component';
 import { Location } from '@angular/common';
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, tap } from 'rxjs/operators';
 import { Apiservice } from 'src/app/Services/Apiservice';
- 
+import { buttonConfig } from 'src/app/Services/buttonConfig';
+
 @Pipe({
   name: "HtmlToText",
 })
@@ -28,6 +30,7 @@ export class SearchToolbarComponent implements OnInit {
   Books$: any;
   searchText = new Subject<any>();
   loader: string = "";
+  public buttonConfig : buttonConfig[] = [];
 
   constructor(private Api: Apiservice, private Http: HttpClient, private location: Location) { }
 
@@ -40,7 +43,20 @@ export class SearchToolbarComponent implements OnInit {
       distinctUntilChanged()
     ).subscribe(res => {
       this.getBooks(res);
-    })
+    });
+
+    let Home = new buttonConfig("Home" , this.goToHome , this );
+    let savedBooks = new buttonConfig("Saved Books" , this.saveBooks , this );
+    this.buttonConfig.push(Home);
+    this.buttonConfig.push(savedBooks);
+  }
+
+  goToHome(val : string , vla1 :string){
+    alert("From Home"+vla1);
+  }
+
+  saveBooks(val:string,val2:string){
+    alert("saved books"+val2)
   }
 
   search(val: string) {
@@ -55,5 +71,11 @@ export class SearchToolbarComponent implements OnInit {
       })
     );
     }
+  }
+
+  getContent(data : SearchSidebarComponent){
+     let d : Function = data.ModalData.bind("pasas");
+    d();
+     // console.log(data.ModalData)
   }
 }

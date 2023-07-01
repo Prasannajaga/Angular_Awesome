@@ -1,9 +1,7 @@
 <nav class="navbar">
     <ul class="nav-item">
-        <li class="nav-link c-point">Home</li>
-        <li class="nav-link c-point">Saved Books</li>
-    </ul> 
-</nav> 
+        <li class="nav-link c-point" *ngFor="let data of buttonConfig" (click)="onClick(data)">{{data.buttonName}}</li>
+    </ul>
+ </nav>
 
- 
-   
+

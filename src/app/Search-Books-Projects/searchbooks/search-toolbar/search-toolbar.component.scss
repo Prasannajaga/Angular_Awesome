@@ -1,12 +1,14 @@
 
- 
+
   $primary-header : #f0e68c !important;
   $primary-font : Verdana, sans-serif;
   $primary-nav-color : #3f51b5 !important;
   $primary-menu : #f3eba5   !important  ;
   $right-menu : #f3eba5 !important ;
   $body-color : #d8dcf1;
- 
+  $primary-color : linear-gradient(to bottom right, #2193b0, #6dd5ed);
+
+
 
 .navbar {
     display: flex;
@@ -15,7 +17,7 @@
     background-image: linear-gradient(to bottom right, #2193b0, #6dd5ed);
     padding: 20px;
     margin: -7px -7px 0 -7px;
-  
+
     input{
       max-width: 70%;
       width: 35%;
@@ -25,33 +27,33 @@
       border-radius: 8px;
     }
   }
-  
+
   .container-main{
     display: flex;
     flex-direction: row ;
   }
-  
+
   .content-body {
     display: flex;
     flex-direction: column;
     border-radius: 6px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     width: 19em;
-  
+
     img {
       margin: 10px;
       box-shadow: #1f2937 16px 7px 27px;
     }
-  
+
     .content {
       padding: 10px;
-  
+
       p {
         font-family: 'Trebuchet MS', sans-serif;
       }
     }
   }
-  
+
   .containers {
     display: flex;
     flex-direction: row;
@@ -70,7 +72,7 @@ body{
 
 .container{
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
     "header header header header"
     "leftbar body body rightbar"
     "leftbar body body rightbar"
@@ -78,7 +80,7 @@ body{
     column-gap: 10px;
     grid-template-columns: 0.4fr 2fr 0.5fr 0.8fr;
 }
- 
+
 
 .container-body{
     grid-area: body;
@@ -90,6 +92,7 @@ body{
 .left-menu{
     /* background-color: var(--primary-menu); */
     grid-area: leftbar;
+    background-image: $primary-color !important;
     margin-top: 2px;
     margin-left: 9px;
  }
@@ -99,7 +102,7 @@ body{
  }
 
 .right-menu{
-    background-color: $right-menu; 
+    background-color: $right-menu;
     grid-area: rightbar;
     margin-top: 2px;
 }

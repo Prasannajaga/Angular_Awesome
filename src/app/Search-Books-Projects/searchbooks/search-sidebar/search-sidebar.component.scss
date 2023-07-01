@@ -1,17 +1,14 @@
 $primary-color : linear-gradient(to bottom right, #2193b0, #6dd5ed);
 $primary-text: #fff;
 
-.navbar { 
+.navbar {
 
     .nav-item {
-
+        position: sticky;
         display: flex;
         flex-direction: column;
         list-style-type: none;
         padding: 10px;
-        height: 100rem;
-        width: 12rem;
-        background-image: $primary-color;
         margin: 5px 0 0 -6px;
 
 
