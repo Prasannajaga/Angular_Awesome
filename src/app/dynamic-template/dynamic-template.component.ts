@@ -41,6 +41,7 @@ export class DynamicTemplateComponent implements AfterViewInit, OnInit, OnChange
   }
 
   ngOnInit() {
+    // console.log("hello it's")
     this.asyncForm = this.formBuilder.group({
       userName : new FormControl("",[Validators.required]),
       age : new FormControl("" , [Validators.required])
