@@ -37,6 +37,7 @@ export class DynamicTemplateComponent implements AfterViewInit, OnInit, OnChange
     {name : "kumar" , age :25},
   ]
   ngAfterViewInit(): void {
+    console.log("after reverting");
 
   }
 
