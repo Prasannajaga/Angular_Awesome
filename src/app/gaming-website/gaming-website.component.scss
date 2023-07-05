@@ -1,0 +1,135 @@
+$header-color: #0e2f44;
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: math;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.f-grow {
+  flex-grow: 0.8;
+}
+
+.search-content :is(.box) {
+  display: flex;
+  gap: 10px;
+}
+
+.card:hover {
+  transform: scale(1,1.2);
+  z-index: 20;
+  box-shadow: #36b84e 16px 7px 27px;
+  // opacity: 1;/
+}
+
+.details {
+  position: relative;
+}
+
+.details   {
+  h1::after {
+    content: " ";
+  position: absolute;
+  top: -0.1em;
+  // bottom: -0.75em;
+  transform: scale(0,1);
+  transform-origin: left;
+  transition: transform 500ms ease-in-out;
+  left: 0;
+  right: 0;
+  background: black;
+  height: 5px;
+ }
+
+ h1:hover::after{
+  transform: scale(1,1);
+ }
+ }
+
+.game-container {
+  position: relative;
+  top: 6em;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  gap: 3em;
+
+  .card {
+    display: flex;
+    box-shadow: #1f2937 16px 7px 27px;
+    padding: 1em;
+    // transform: scale(1);
+    transform-origin:center;
+    transition: transform 200ms ease ;
+    gap: 5rem;
+    border-radius: 1em;
+  }
+
+
+  .card :is(img) {
+    max-width: 30em;
+    object-fit: fill;
+  }
+
+  .image {
+    transition: 400ms ease;
+  }
+
+  .image:hover {
+    scale: 0.9;
+    // opacity: 0.6;
+  }
+
+  #genre {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    :is(label, p) {
+      font-size: 2em;
+      font-weight: 600;
+    }
+
+    p {
+      text-transform: lowercase;
+      padding-left: 0.5em;
+    }
+  }
+}
+
+#genre > p::first-letter {
+  text-transform: capitalize;
+}
+
+.details :is(h1) {
+  font-size: 3.5em;
+}
+
+.game-header {
+  z-index: 2;
+  background-color: $header-color;
+  color: #fff;
+  transition: 0.5s ease;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  padding: 1em;
+}
+
+.search {
+  padding: 0.5em;
+  outline: none;
+  border: 0;
+  font-size: large;
+  border-radius: 2%;
+  margin: 4px !important;
+}
