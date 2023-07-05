@@ -2,6 +2,7 @@ import { Component, Injectable, Input, OnInit, Output, Pipe, PipeTransform } fro
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { DynamicTemplateComponent } from '../dynamic-template/dynamic-template.component';
 
 @Pipe({
   name: 'prasa'
@@ -38,7 +39,7 @@ export class PJModalComponent implements OnInit {
   @Input("datas") collection: Array<string>;
   @Output() sendData = new EventEmitter();
 
-  constructor(public common: ProvideInjection) { } 
+  constructor(public common: ProvideInjection) { }
 
   ngOnInit() {
 
@@ -49,9 +50,10 @@ export class PJModalComponent implements OnInit {
     data.form.get(data.value).updateValueAndValidity();
   }
 
-  close(modal: HTMLDivElement) {
+  close(modals: DynamicTemplateComponent, modal) {
     modal.style.display = "none";
-    console.log(modal);
+    modals.employees.splice(1,1)
+    console.log(modals.employees);
   }
 
   removeItem(value: string, index: number) {
@@ -63,8 +65,6 @@ export class PJModalComponent implements OnInit {
   }
 
   change(data: any) {
-    console.log(data);
-
     this.sendData.emit("Hello it's me ")
   }
 

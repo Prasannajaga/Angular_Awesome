@@ -2,27 +2,24 @@
   {{common.data | json}}
   <!-- Modal content -->
   <div class="modal-content">
-    <span (click)="close(modal)" class="close">&times;</span>
-    <p>{{ data ||  "Some text in the Modal.."}}</p> 
+    <span (click)="close(datas , modal)" class="close">&times;</span>
+    <p>{{ data ||  "Some text in the Modal.."}}</p>
     <p *ngFor="let item of collection;let i = index">
       {{item}}
       <button (click)="removeItem(item,i)">remove</button>
-    </p> 
-  </div> 
- 
-</div>
+    </p>
+  </div>
 
-<!-- 
-<app-dynamic-template #data="dynam"></app-dynamic-template>
+  <app-dynamic-template #datas="dynam">
+  </app-dynamic-template>
 
-{{data | prasa}}
+ </div>
 
-<button (click)="change(data)">
-  Child component
-</button>
-<p *ngFor="let item of collection">
-  {{item}}
-</p> -->
+
+
+
+
+
 
 
 

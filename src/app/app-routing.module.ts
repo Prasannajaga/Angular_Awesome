@@ -8,9 +8,10 @@ import { SearchSidebarComponent } from './Search-Books-Projects/searchbooks/sear
 import { SearchToolbarComponent } from './Search-Books-Projects/searchbooks/search-toolbar/search-toolbar.component';
 import { CustomDecoratorComponent } from './Custom-Classes/custom-decorator/custom-decorator.component';
 import { CustomDesignsComponent } from './Custom-Classes/custom-designs/custom-designs.component';
- 
+import { GamingWebsiteComponent } from './gaming-website/gaming-website.component';
+
 const routes: Routes = [
-  { path: 'Parent', component: AppComponent  , children : [ 
+  { path: 'Parent', component: AppComponent  , children : [
      {path : "timezone" , component : TimeZoneComponent},
   ]},
 
@@ -18,6 +19,8 @@ const routes: Routes = [
    {path : "DynamicTemplate" , component : DynamicTemplateComponent},
    {path : "pjmodal" , component : PJModalComponent},
    {path : "customDecorator" , component : CustomDesignsComponent},
+   {path : "Games" , component : GamingWebsiteComponent},
+
 
 
 ];

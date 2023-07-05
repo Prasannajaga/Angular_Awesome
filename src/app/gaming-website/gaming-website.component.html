@@ -1,0 +1,34 @@
+
+
+
+  <header class="game-header">
+        <div class="flex">
+          <div class="f-grow">
+               <h1> Vector Gaming </h1>
+           </div>
+          <div class="search-content">
+            <div class="box">
+              <input type="text" class="search" placeholder="Search Games here ...">
+              <img src="../../assets/searchButton.jpeg" width="50" height="50">
+            </div>
+           </div>
+
+        </div>
+  </header>
+
+
+  <article class="game-container">
+
+    <div class="card" *ngFor="let game of Games">
+        <img class="image" src="{{game.imageurl}}" alt=""  >
+        <div class="details">
+          <h1>{{game.Name}}</h1>
+          <div id="genre">
+            <label>Genre :</label>
+            <p>{{game.Genre}}</p>
+          </div>
+        </div>
+    </div>
+
+  </article>
+

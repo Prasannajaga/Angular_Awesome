@@ -15,15 +15,16 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
   templateUrl: './dynamic-template.component.html',
   styleUrls: ['./dynamic-template.component.scss'],
   // providers :[ProvideInjection],
-  exportAs: "dynam",
-   outputs: ["Prasanna", "Jagadesh"]
+   exportAs: "dynam",
+   outputs: ["Prasanna", "Jagadesh"],
+
 
 })
 export class DynamicTemplateComponent implements AfterViewInit, OnInit, OnChanges {
 
   @ViewChild("welcomeForm", { read: ViewContainerRef, static: true }) Demo: ViewContainerRef;
   constructor(
-    private component: ComponentFactoryResolver, 
+    private component: ComponentFactoryResolver,
     private change: ChangeDetectorRef,
     public common: ProvideInjection,
     private formBuilder : FormBuilder
@@ -42,13 +43,11 @@ export class DynamicTemplateComponent implements AfterViewInit, OnInit, OnChange
 
   }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.asyncForm = this.formBuilder.group({
       userName : new FormControl("",[Validators.required]),
       age : new FormControl("" , [Validators.required])
     });
-    console.log(this.asyncForm);
-    
   }
 
   Submit(){
@@ -57,15 +56,10 @@ export class DynamicTemplateComponent implements AfterViewInit, OnInit, OnChange
     this.asyncForm.addControl("prasa", new FormControl(''));
     this.asyncForm.setControl('prasa',new FormControl('',[Validators.required]));
     this.asyncForm.setErrors({data : true});
-    console.log(this.asyncForm);
-
-    this.asyncForm.setErrors(null)    // this.asyncForm.mark
-    console.log(this.asyncForm);
-    
-    
+    this.asyncForm.setErrors(null);
   }
 
-  
+
 
   ngOnChanges(value: SimpleChanges) {
     console.log("sds", value);
@@ -78,16 +72,15 @@ export class DynamicTemplateComponent implements AfterViewInit, OnInit, OnChange
     c.data = "hello its me Prasanna";
     c.collection = this.common.getData();
     this.change.detectChanges();
-    console.log("c", c);
-  }
+   }
 
   changes() {
-    // const d =  this.component.resolveComponentFactory(PJModalComponent); 
+    // const d =  this.component.resolveComponentFactory(PJModalComponent);
     this.common.data.push("The God of Genjutsu");
     PJModalComponent.updateControl({value:'age',form :this.asyncForm});
     console.log(this.asyncForm);
-    
-     
+
+
     // let dd = this.Demo.createComponent(d);
     //  console.log(dd.instance);
 

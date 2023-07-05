@@ -18,6 +18,7 @@ import { TableComponent } from './Custom-Classes/table/table.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomDesignsComponent } from './Custom-Classes/custom-designs/custom-designs.component';
 import { FormErrorController, filterByName } from './custom-pipes/FormErrorPipe';
+import { GamingWebsiteComponent } from './gaming-website/gaming-website.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { FormErrorController, filterByName } from './custom-pipes/FormErrorPipe'
     CustomDecoratorComponent,
     TableComponent,
     CustomDesignsComponent,
+    GamingWebsiteComponent,
   ],
   imports: [
     BrowserModule,
